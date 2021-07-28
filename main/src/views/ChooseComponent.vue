@@ -63,7 +63,7 @@ export default {
         //接入子组件
         this.MicroApp = loadMicroApp({
           name: "vue-app",
-          entry: "http://172.16.16.4:8080",
+          entry: "http://172.16.16.4:10000",
           container: "#model",
           //写入当前路由的路径 子应用会+接至该路径之后
           activeRule: "/ChooseComponent",
