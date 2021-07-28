@@ -45,7 +45,8 @@ router.post('/saveData', (req, res) => {
   try {
     const {
       modelId,
-      data
+      data,
+      filePath
     } = req.body
     console.log(`data`, data)
     console.log(`1`, 11111)
@@ -61,37 +62,32 @@ router.post('/saveData', (req, res) => {
         console.log(`3`, 3)
         let find = false
         const modeDataList = ContentOperate.readData(fileData)
-        console.log(`2`, modeDataList)
+        console.log(`4`, modeDataList)
         const userData = modeDataList.map(e => {
           if (e.modelId === modelId) {
             find = true
-            return {
-              ...e,
-              data:{
-                ...data
-              }
-            }
+            return data
           }
           return e
         })
-        console.log(`4`, 4)
+        console.log(`5`, 5)
         if (!find) {
           err1.message = '未找到相关数据'
           err1.code = -404
           throw err1
         }
         fs.writeFile('./modeData/modeDataList.json', ContentOperate.createStr(userData), (err) => {
-          console.log(`5`, 5)
+          console.log(`6`, 6)
           const err1 = new Error(err)
           try {
             if (err) throw err1
-            console.log(`6`, 6)
-            fs.writeFile(data.path, ContentOperate.createStr(data), (err) => {
-              console.log(`5`, 5)
+            console.log(`7`,7)
+            fs.writeFile(filePath, ContentOperate.createStr(data), (err) => {
+              console.log(`8`, 8)
               const err1 = new Error(err)
               try {
                 if (err) throw err1
-                console.log(`6`, 6)
+                console.log(`9`, 9)
                 res.send({
                   code: 1,
                   data: data,
@@ -103,6 +99,7 @@ router.post('/saveData', (req, res) => {
               }
             });
           } catch (error) {
+            console.log(`err107`, error)
             if (error === err1) return console.warn(`error`, error)
 
           }
@@ -118,6 +115,8 @@ router.post('/saveData', (req, res) => {
         //   msg: '成功'
         // })
       } catch (error) {
+        
+        console.log(`err124`, error)
         if (err1 === error) {
           res.send({
             code: -1,
@@ -129,9 +128,8 @@ router.post('/saveData', (req, res) => {
 
     })
 
-    console.log(`3`, modeDataList)
   } catch (error) {
-
+    console.log(`err137`, error)
   }
 })
 module.exports = router

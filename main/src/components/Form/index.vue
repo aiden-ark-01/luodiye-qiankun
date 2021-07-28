@@ -23,7 +23,14 @@ export default {
       },
     };
   },
-
+  watch: {
+    data:{
+      handler(val){
+        console.log(`val`, val)
+      },
+      deep:true
+    }
+  },
   mounted() {
     console.log(`rule`, this.data);
   },

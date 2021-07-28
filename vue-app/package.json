@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "set VUE_APP_FILE_PATH=F:/myTest/luodiye-qiankun/vue-app && vue-cli-service serve",
+    "serve": "set VUE_APP_FILE_PATH=/usr/src/luodiye-qiankun/vue-app/ && vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },

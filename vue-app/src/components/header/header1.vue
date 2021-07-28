@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "VueAppHeader1",
+  name: "header1",
   props: {
     defaultData: {
       type: Object,
@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      data: window.__POWERED_BY_QIANKUN__?this.defaultData:{
+      data: {
         key: "header",
         modelName: "header1",
         values: {
@@ -39,6 +39,14 @@ export default {
 
   mounted() {
     if (window.__POWERED_BY_QIANKUN__) {
+        console.log(`this.$options.name`, this.$options.name)
+        console.log(`this.defaultData.modelName`, this.defaultData.modelName)
+      if (this.$options.name === this.defaultData.modelName) {
+        this.data = {
+          ...this.data,
+          ...this.defaultData,
+        };
+      }
       this.$emit("getOptions", this.data);
     }else{
       this.data=this.defaultData

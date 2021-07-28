@@ -35,17 +35,20 @@ export default {
     };
   },
   computed: {
-    ...mapState("chooseComponent", ["chooseComponentData"]),
+    ...mapState("chooseComponent", [
+      "chooseComponentData",
+      "filePath",
+      "modelData",
+    ]),
     componentsList() {
       if (typeof this.chooseComponentData === "object") {
         const keys = Object.keys(this.chooseComponentData);
-        const arr = []
+        const arr = [];
         keys.forEach((e) => {
-          if (e!=='path') {
-          arr.push( this.chooseComponentData[e]);
+          if (e !== "path") {
+            arr.push(this.chooseComponentData[e]);
           }
         });
-        console.log(`arr`, arr);
         return arr;
       }
       return [];
@@ -53,12 +56,24 @@ export default {
   },
   async created() {
     try {
+      if (!this.$route.query.id) {
+        this.setModelData({});
+        this.$router.replace({
+          path: "/",
+        });
+        return console.log(`this.$route.params`, this.$route.query.id);
+      }
+      const modelId = +this.$route.query.id;
       const {
         data: { options, modelName },
       } = await request.POST("/api/getModelData", {
-        modelId: 1,
+        modelId,
       });
       this.setChooseComponentData(options);
+      this.setModelData({
+        modelId,
+        modelName,
+      });
       if (!this.MicroApp) {
         //接入子组件
         this.MicroApp = loadMicroApp({
@@ -104,22 +119,28 @@ export default {
   },
 
   methods: {
-    ...mapActions("chooseComponent", ["setChooseComponentData"]),
+    ...mapActions("chooseComponent", [
+      "setChooseComponentData",
+      "setModelData",
+    ]),
     btn1() {
       const {
         header: { modelName },
       } = this.chooseComponentData;
       const name = modelName === "header1" ? "header2" : "header1";
       const data = this.chooseComponentData;
-      data.header.modelName = name;
+      data.header = { modelName: name };
       this.setChooseComponentData(data);
-
     },
     btn2() {
-      request.POST('/api/saveData',{
-        modelId:1,
-        data:this.chooseComponentData
-      })
+      request.POST("/api/saveData", {
+        modelId: this.modelData.modelId,
+        data: {
+          ...this.modelData,
+          data: this.chooseComponentData,
+        },
+        filePath: process.env.VUE_APP_FILE_PATH + this.filePath,
+      });
     },
   },
 };

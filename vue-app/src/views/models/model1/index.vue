@@ -32,7 +32,7 @@ export default {
     header2,
   },
   data() {
-    console.log(`defualtValues`, defualtValues)
+    console.log(`window.__POWERED_BY_QIANKUN__`, window.__POWERED_BY_QIANKUN__);
     return {
       token: "",
       defualtValues,
@@ -46,11 +46,13 @@ export default {
         if (window.__POWERED_BY_QIANKUN__) {
           const data = this.$store.state.chooseComponent.chooseComponentData;
           // this.run(data)
+          console.log(`chooseComponentData=>`, data);
           return data;
         }
-        return this.defualtValues;
+        console.log(`chooseComponentData/defualtValues=>`, this.defualtValues);
+        return this.defualtValues.data;
       } catch (error) {
-        console.log(`error`, error);
+        console.log(`model1/index/55`, error);
         return {};
       }
     },
@@ -96,18 +98,18 @@ export default {
     //   // this.getUserInfo(token);
     // }, true);
     if (window.__POWERED_BY_QIANKUN__) {
-      const data=this.chooseComponentData
-      data.path= "/usr/src/luodiye-qiankun/vue-app/" +
-        this.$options.__file.toString().replace("index.vue", "values.json");
-       
-      this.setChooseComponentData(data);
-      console.log(`this.datadatadata`, data);
+      if (!this.$options.__file) return
+      console.log(`this.$options.__file`, this.$options.__file)
+      this.setFilePath(
+        this.$options.__file.replace("index.vue", "values.json")
+      );
     }
   },
   methods: {
-    ...mapActions("chooseComponent", ["setChooseComponentData"]),
+    ...mapActions("chooseComponent", ["setChooseComponentData", "setFilePath"]),
     vuex() {
       // this.changeTest(321)
+      console.log(`this.chooseComponentData`, this.chooseComponentData)
     },
     // importComponent(key, name) {
     //   return import(`@/components/${key}/${name}.vue`)
@@ -161,7 +163,6 @@ export default {
     // },
     getOptions(options) {
       if (!window.__POWERED_BY_QIANKUN__) return;
-      console.log(`333`, 333);
       const data = this.chooseComponentData;
       data[options.key] = options;
       if (window.__POWERED_BY_QIANKUN__) {
@@ -172,11 +173,6 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 *[flex1] {
   display: flex;
   align-items: center;

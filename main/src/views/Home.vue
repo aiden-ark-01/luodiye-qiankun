@@ -16,7 +16,10 @@ export default {
   methods: {
     goChooseComponent(){
       this.$router.push({
-        path:'/ChooseComponent/'
+        path:'/ChooseComponent/',
+        query:{
+          id:1
+        }
       })
     }
   }
