@@ -96,7 +96,7 @@ export default {
     //   // this.getUserInfo(token);
     // }, true);
     if (window.__POWERED_BY_QIANKUN__) {
-      const data=this.setChooseComponentData
+      const data=this.chooseComponentData
       data.path= "/usr/src/luodiye-qiankun/vue-app/" +
         this.$options.__file.toString().replace("index.vue", "values.json");
        
