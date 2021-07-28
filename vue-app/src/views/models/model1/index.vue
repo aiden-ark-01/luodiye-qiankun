@@ -97,7 +97,7 @@ export default {
     // }, true);
     if (window.__POWERED_BY_QIANKUN__) {
       this.chooseComponentData.path =
-        "F:/myTest/qiankunDemo1/vue-app/" +
+        "/usr/src/qiankunDemo1/vue-app/" +
         this.$options.__file.toString().replace("index.vue", "values.json");
       this.setChooseComponentData(this.chooseComponentData);
       console.log(`this.data`, this.chooseComponentData);
