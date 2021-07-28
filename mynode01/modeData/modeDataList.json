@@ -1,1 +1,77 @@
-[{"modelId":1,"modelName":"model1","data":{"header":{"key":"header","modelName":"header1","values":{"col24_1":"请问亲亲我"},"rule":[{"type":"input","title":"col24","field":"col24_1","props":{},"on":{},"options":[],"children":[],"hidden":false,"display":true,"value":"请问亲亲我"}],"fApi":{"helper":{},"config":{"formData":{},"submitBtn":{"show":false},"resetBtn":{"show":false},"global":{}},"options":{"formData":{},"submitBtn":{"show":false},"resetBtn":{"show":false},"global":{}},"form":{"col24_1":"请问亲亲我"},"rule":[{"type":"input","title":"col24","field":"col24_1","props":{},"on":{},"options":[],"children":[],"hidden":false,"display":true,"value":"请问亲亲我"}],"parent":null,"children":[],"btn":{},"resetBtn":{}}},"path":"F:/myTest/qiankunDemo1/vue-app/src/views/models/model1/values.json"}},{"modelId":2,"modelName":"model2","data":{"header":{"modelName":"header2","options":{}}}}]
+[{
+  "modelId": 1,
+  "modelName": "model1",
+  "data": {
+    "header": {
+      "key": "header",
+      "modelName": "header1",
+      "values": {
+        "col24_1": "请问亲亲我"
+      },
+      "rule": [{
+        "type": "input",
+        "title": "col24",
+        "field": "col24_1",
+        "props": {},
+        "on": {},
+        "options": [],
+        "children": [],
+        "hidden": false,
+        "display": true,
+        "value": "请问亲亲我"
+      }],
+      "fApi": {
+        "helper": {},
+        "config": {
+          "formData": {},
+          "submitBtn": {
+            "show": false
+          },
+          "resetBtn": {
+            "show": false
+          },
+          "global": {}
+        },
+        "options": {
+          "formData": {},
+          "submitBtn": {
+            "show": false
+          },
+          "resetBtn": {
+            "show": false
+          },
+          "global": {}
+        },
+        "form": {
+          "col24_1": "请问亲亲我"
+        },
+        "rule": [{
+          "type": "input",
+          "title": "col24",
+          "field": "col24_1",
+          "props": {},
+          "on": {},
+          "options": [],
+          "children": [],
+          "hidden": false,
+          "display": true,
+          "value": "请问亲亲我"
+        }],
+        "parent": null,
+        "children": [],
+        "btn": {},
+        "resetBtn": {}
+      }
+    },
+    "path": "/usr/src/luodiye-qiankun/vue-app/src/views/models/model1/values.json"
+  }
+}, {
+  "modelId": 2,
+  "modelName": "model2",
+  "data": {
+    "header": {
+      "modelName": "header2",
+      "options": {}
+    }
+  }
+}]

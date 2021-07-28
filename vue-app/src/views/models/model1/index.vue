@@ -96,11 +96,12 @@ export default {
     //   // this.getUserInfo(token);
     // }, true);
     if (window.__POWERED_BY_QIANKUN__) {
-      this.chooseComponentData.path =
-        "/usr/src/qiankunDemo1/vue-app/" +
+      const data=this.setChooseComponentData
+      data.path= "/usr/src/luodiye-qiankun/vue-app/" +
         this.$options.__file.toString().replace("index.vue", "values.json");
-      this.setChooseComponentData(this.chooseComponentData);
-      console.log(`this.data`, this.chooseComponentData);
+       
+      this.setChooseComponentData(data);
+      console.log(`this.datadatadata`, data);
     }
   },
   methods: {
