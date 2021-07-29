@@ -22,7 +22,7 @@ export default {
       options: {
         resetBtn: false,
         onSubmit: () => {
-            this.$emit('submit');
+          this.$emit("submit");
         },
         global: {
           "*": {
@@ -43,7 +43,9 @@ export default {
               name: "pic",
               onSuccess: function (response, file) {
                 file.url =
-                  "http://localhost:3031/public/uploads/" + response.data.path;
+                  process.env.VUE_APP_SERVER_PATH +
+                  "public/uploads/" +
+                  response.data.path;
               },
               onError: function (r) {
                 console.log(`r`, r);
