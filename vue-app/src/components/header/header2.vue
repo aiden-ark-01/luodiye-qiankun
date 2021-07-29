@@ -31,6 +31,7 @@ export default {
             type: "input",
             title: "标题",
             field: "col24_2",
+            value: "",
           },
         ],
       },
@@ -39,8 +40,6 @@ export default {
 
   mounted() {
     if (window.__POWERED_BY_QIANKUN__) {
-        console.log(`this.$options.name`, this.$options.name)
-        console.log(`this.defaultData.modelName`, this.defaultData.modelName)
       if (this.$options.name === this.defaultData.modelName) {
         this.data = {
           ...this.data,

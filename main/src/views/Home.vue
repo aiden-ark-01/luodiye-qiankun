@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-    <div class="itemView" @click="goChooseComponent">
-      选择模板
-    </div>
+    <div class="itemView" @click="goChooseComponent">模板1</div>
   </div>
 </template>
 
@@ -10,23 +8,30 @@
 // @ is an alias to /src
 
 export default {
-  name: 'Home',
-  components: {
+  name: "Home",
+  data() {
+    return {};
   },
+  components: {},
+  mounted() {},
   methods: {
-    goChooseComponent(){
+    goChooseComponent() {
       this.$router.push({
-        path:'/ChooseComponent/',
-        query:{
-          id:1
-        }
-      })
-    }
-  }
-}
+        path: "/ChooseComponent/",
+        query: {
+          id: 1,
+          modelName: "model1",
+        },
+      });
+    },
+    // submitUpload() {
+    //   this.$refs.form.submit();
+    // },
+  },
+};
 </script>
 <style lang="less" scoped>
-.itemView{
+.itemView {
   width: 200px;
   height: 300px;
   border: 1px solid #000;

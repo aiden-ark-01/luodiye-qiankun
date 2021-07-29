@@ -36,7 +36,8 @@ app.get('/test', (req, res) => {
 router.forEach(r=>{
   app.use(r)
 })
-
+// console.log(`__dirname`, __dirname+'/tmp/uploads')
+app.use('/public',express.static('./tmp'))
 app.listen(process.env.NODE_PORT, () => {
   console.log(`Example app listening at http://localhost:${process.env.NODE_PORT}`)
   // const client = mongodb.MongoClient;

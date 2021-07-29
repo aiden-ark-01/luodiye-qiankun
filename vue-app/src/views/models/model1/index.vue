@@ -7,13 +7,17 @@
         @getOptions="getOptions"
       />
     </div>
-    <div flex1 id="banner">我是banner</div>
+    <component
+      :is="chooseComponentData.banner.modelName"
+      flex1
+      :defaultData="chooseComponentData.banner"
+      @getOptions="getOptions"
+    />
     <div flex1 id="Components1" class="Components">组件1</div>
     <div flex1 id="foot">我是脚部</div>
     <div>
       <!-- {{ chooseComponentData.header.modelName }} -->
     </div>
-    <button @click="vuex">vuex</button>
   </div>
 </template>
 <script>
@@ -23,6 +27,7 @@
 import { mapActions } from "vuex";
 import header1 from "@/components/header/header1.vue";
 import header2 from "@/components/header/header2.vue";
+import banner1 from "@/components/banner/banner1.vue";
 import defualtValues from "./values.json";
 // import { request } from "@/utils";
 export default {
@@ -30,9 +35,9 @@ export default {
   components: {
     header1,
     header2,
+    banner1,
   },
   data() {
-    console.log(`window.__POWERED_BY_QIANKUN__`, window.__POWERED_BY_QIANKUN__);
     return {
       token: "",
       defualtValues,
@@ -44,6 +49,9 @@ export default {
     chooseComponentData() {
       try {
         if (window.__POWERED_BY_QIANKUN__) {
+          if (!this.$store.state.chooseComponent.chooseComponentData.header) {
+            return this.defualtValues.data;
+          }
           const data = this.$store.state.chooseComponent.chooseComponentData;
           // this.run(data)
           console.log(`chooseComponentData=>`, data);
@@ -98,8 +106,11 @@ export default {
     //   // this.getUserInfo(token);
     // }, true);
     if (window.__POWERED_BY_QIANKUN__) {
-      if (!this.$options.__file) return
-      console.log(`this.$options.__file`, this.$options.__file)
+      if (!this.$options.__file) return;
+      if (!this.$store.state.chooseComponent.chooseComponentData.header) {
+        this.setChooseComponentData(this.defualtValues.data);
+      }
+      console.log(`地址前缀`, this.$options.__file);
       this.setFilePath(
         this.$options.__file.replace("index.vue", "values.json")
       );
@@ -107,10 +118,6 @@ export default {
   },
   methods: {
     ...mapActions("chooseComponent", ["setChooseComponentData", "setFilePath"]),
-    vuex() {
-      // this.changeTest(321)
-      console.log(`this.chooseComponentData`, this.chooseComponentData)
-    },
     // importComponent(key, name) {
     //   return import(`@/components/${key}/${name}.vue`)
     //     .then((component) => {

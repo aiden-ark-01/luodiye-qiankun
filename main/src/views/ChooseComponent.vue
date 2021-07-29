@@ -2,15 +2,8 @@
   <div flex3 class="chooseComponentView">
     <div id="model"></div>
     <div flex2 class="edit">
-      <!-- <h1>{{chooseComponentData.test}}</h1> -->
-      <div v-for="(ele, index) in componentsList" :key="index.toString()">
-        <div v-if="ele.rule">
-          <MyForm :data="ele" />
-        </div>
-      </div>
       <button @click="btn1" v-if="chooseComponentData.header">切换头部</button>
-
-      <button @click="btn2">提交</button>
+      <MyForm :data="componentsList" @changeForm="changeForm" @submit="btn2" />
     </div>
   </div>
 </template>
@@ -42,14 +35,15 @@ export default {
     ]),
     componentsList() {
       if (typeof this.chooseComponentData === "object") {
+        let rule = [];
+        let values = {};
+        const data = this.chooseComponentData;
         const keys = Object.keys(this.chooseComponentData);
-        const arr = [];
         keys.forEach((e) => {
-          if (e !== "path") {
-            arr.push(this.chooseComponentData[e]);
-          }
+          rule = rule.concat(data[e].rule);
+          values = Object.assign({}, values, data[e].values);
         });
-        return arr;
+        return { values, rule };
       }
       return [];
     },
@@ -61,15 +55,19 @@ export default {
         this.$router.replace({
           path: "/",
         });
-        return console.log(`this.$route.params`, this.$route.query.id);
+        return 
       }
       const modelId = +this.$route.query.id;
+      const modelName = this.$route.query.modelName;
       const {
-        data: { options, modelName },
+        code,
+        data: { options },
       } = await request.POST("/api/getModelData", {
         modelId,
       });
-      this.setChooseComponentData(options);
+      if (code > 0) {
+        this.setChooseComponentData(options);
+      }
       this.setModelData({
         modelId,
         modelName,
@@ -93,8 +91,8 @@ export default {
       // const res= await request.POST('/api/getData',{})
       // console.log(`res`, res)
     } catch (error) {
-      if (error.message) {
-        console.log(`error.message`, error.message);
+      if (error.msg) {
+        console.log(`error.msg`, error.msg);
         return;
       }
       console.log(`error`, error);
@@ -133,14 +131,31 @@ export default {
       this.setChooseComponentData(data);
     },
     btn2() {
-      request.POST("/api/saveData", {
-        modelId: this.modelData.modelId,
-        data: {
-          ...this.modelData,
-          data: this.chooseComponentData,
-        },
-        filePath: process.env.VUE_APP_FILE_PATH + this.filePath,
+      request
+        .POST("/api/saveData", {
+          modelId: this.modelData.modelId,
+          data: {
+            ...this.modelData,
+            data: this.chooseComponentData,
+          },
+          filePath: process.env.VUE_APP_FILE_PATH + this.filePath,
+        })
+        .then((res) => {
+          if (res.code>0) {
+            alert(res.msg)            
+          }
+        });
+    },
+    changeForm({ key: dataKey, value: dataValue }) {
+      const data = this.chooseComponentData;
+      const keys1 = Object.keys(data);
+      keys1.forEach((e) => {
+        if (data[e].values[dataKey] != null) {
+          data[e].values[dataKey] = dataValue;
+          // data[e].values[v.key]=v.v
+        }
       });
+      this.setChooseComponentData(data);
     },
   },
 };

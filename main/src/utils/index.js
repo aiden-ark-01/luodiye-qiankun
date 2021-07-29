@@ -9,8 +9,8 @@ export const request = {
         },
         body: JSON.stringify(params)
       })
-      const r=await res.json()
-      if (r.code<0) {
+      const r = await res.json()
+      if (r.code != -404 && r.code < 0) {
         throw r
       }
       return await Promise.resolve(r)
