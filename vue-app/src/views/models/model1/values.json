@@ -1,1 +1,48 @@
-{"modelId":1,"modelName":"model1","data":{"header":{"key":"header","modelName":"header2","values":{"col24_2":"我是默认标题2"},"rule":[{"type":"input","title":"标题","field":"col24_2","value":"我是默认标题2","props":{},"on":{},"options":[],"children":[],"hidden":false,"display":true}]},"banner":{"key":"banner","modelName":"banner1","values":{"banner":"http://localhost:3031/public/uploads/banner1627574608432.png"},"rule":[{"type":"upload","field":"banner","title":"banner","value":"http://localhost:3031/public/uploads/banner1627574608432.png","props":{"data":{"name":"banner"}},"on":{},"options":[],"children":[],"hidden":false,"display":true}]}}}
+{
+  "modelId": 1,
+  "modelName": "model1",
+  "data": {
+    "header": {
+      "key": "header",
+      "modelName": "header2",
+      "values": {
+        "col24_2": "我是默认标题2"
+      },
+      "rule": [{
+        "type": "input",
+        "title": "标题",
+        "field": "col24_2",
+        "value": "我是默认标题2",
+        "props": {},
+        "on": {},
+        "options": [],
+        "children": [],
+        "hidden": false,
+        "display": true
+      }]
+    },
+    "banner": {
+      "key": "banner",
+      "modelName": "banner1",
+      "values": {
+        "banner": "http://localhost:3031/public/uploads/banner1627574608432.png"
+      },
+      "rule": [{
+        "type": "upload",
+        "field": "banner",
+        "title": "banner",
+        "value": "http://localhost:3031/public/uploads/banner1627574608432.png",
+        "props": {
+          "data": {
+            "name": "banner"
+          }
+        },
+        "on": {},
+        "options": [],
+        "children": [],
+        "hidden": false,
+        "display": true
+      }]
+    }
+  }
+}
