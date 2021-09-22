@@ -76,7 +76,7 @@ export default {
         //接入子组件
         this.MicroApp = loadMicroApp({
           name: "vue-app",
-          entry: "http://localhost:10000",
+          entry: process.env.VUE_APP_CLINT_PATH,
           container: "#model",
           //写入当前路由的路径 子应用会+接至该路径之后
           activeRule: "/ChooseComponent",

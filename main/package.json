@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@form-create/element-ui": "^2.5.8",
-    "@form-create/iview": "^2.5.8",
     "babel-plugin-component": "^1.1.1",
     "babel-preset-es2015": "^6.24.1",
     "core-js": "^3.6.5",

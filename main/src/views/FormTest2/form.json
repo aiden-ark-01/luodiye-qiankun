@@ -1,0 +1,94 @@
+[
+  {
+    "type": "select",
+    "field": "cmp_header",
+    "title": "头部选择",
+    "value": "",
+    "control": [
+      {
+        "handle": "(val) => {if (val === 'header1') {return true;}}",
+        "append": "header1",
+        "rule": [
+          {
+            "type": "group",
+            "field": "appDownload",
+            "title": "App下载",
+            "value": [],
+            "props": {
+              "max": 1,
+              "min": 1,
+              "rules": [
+                {
+                  "type": "input",
+                  "field": "downTitle",
+                  "title": "标题",
+                  "props": {
+                    "placeholder": "标题"
+                  },
+                  "validate": [
+                    {
+                      "required": true
+                    }
+                  ]
+                },
+                {
+                  "type": "input",
+                  "field": "downSubtitle",
+                  "title": "副标题",
+                  "props": {
+                    "placeholder": "副标题"
+                  },
+                  "validate": [
+                    {
+                      "required": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "validate": [
+              {
+                "required": true,
+                "min": 1,
+                "type": "array",
+                "message": "最少增加1项"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "handle": "(val) => {if (val === 'header2') {return true;}}",
+        "append": "header2",
+        "rule": [
+          {
+            "type": "input",
+            "field": "title",
+            "title": "头部2",
+            "value": ""
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "value": "header1",
+        "label": "header1",
+        "disabled": false
+      },
+      {
+        "value": "header2",
+        "label": "header2",
+        "disabled": false
+      },
+      {
+        "value": "none",
+        "label": "none",
+        "disabled": false
+      }
+    ],
+    "props": {
+      "multiple": false
+    }
+  }
+]

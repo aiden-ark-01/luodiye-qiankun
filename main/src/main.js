@@ -1,4 +1,6 @@
 import Vue from 'vue'
+// import formCreate from './plugins/form-create/element-ui/dist/form-create'
+
 import formCreate from '@form-create/element-ui'
 import ElementUI from 'element-ui';
 // import { registerMicroApps } from 'qiankun';

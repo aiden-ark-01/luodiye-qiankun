@@ -73,7 +73,6 @@ export default {
   mounted() {
     console.log(`rule`, this.data);
   },
-
   methods: {
     change(e, v) {
       // const data=v[1]

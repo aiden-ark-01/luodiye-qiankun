@@ -1,10 +1,9 @@
 <template>
   <div flex2 class="about">
-    123123
+    <component :is="header" />
   </div>
 </template>
 <script>
-
 //单个模板的测试
 //该文件为基本模板 用于选择相应组件
 import actions from "@/shared/actions";

@@ -969,55 +969,6 @@
   dependencies:
     "@form-create/utils" "^2.5.7"
 
-"@form-create/component-ivu-checkbox@^2.5.7":
-  version "2.5.7"
-  resolved "https://registry.yarnpkg.com/@form-create/component-ivu-checkbox/-/component-ivu-checkbox-2.5.7.tgz#a31995d35b5c199f9e80b4ab8b027692ac5c2afa"
-  integrity sha512-IuwYRpFqAiCs0kSTHtBdzY2SBMGeBJMUyKdH5HgH3Cq93WkMfrQ3+4WpY9Jv3OV7eqQal452UjAtFD3d1m9TCg==
-  dependencies:
-    "@form-create/utils" "^2.5.7"
-
-"@form-create/component-ivu-frame@^2.5.7":
-  version "2.5.7"
-  resolved "https://registry.yarnpkg.com/@form-create/component-ivu-frame/-/component-ivu-frame-2.5.7.tgz#7e7beb64dd0bab8596bcb42bed8298f7f7237020"
-  integrity sha512-N2TlSqCVO2hCh/+j1uazbOwFw+HlnT9YIQ8pfzWBoQRQ70d0OUZPpcU4rcTgsoinb2iZpuogLxCCyy9az5CRuQ==
-  dependencies:
-    "@form-create/utils" "^2.5.7"
-
-"@form-create/component-ivu-group@^2.5.8":
-  version "2.5.8"
-  resolved "https://registry.yarnpkg.com/@form-create/component-ivu-group/-/component-ivu-group-2.5.8.tgz#2b966dc790c96e65da3369be0d42866349e8fd9a"
-  integrity sha512-rF/evEqKebhnMpNpPQcLi2ShaFztPvJQ8u5JUWVbuivKQMW6aNj1GZFv7LBBh0keW947AuWo4D7zVnsenBAFbw==
-  dependencies:
-    "@form-create/utils" "^2.5.7"
-
-"@form-create/component-ivu-radio@^2.5.7":
-  version "2.5.7"
-  resolved "https://registry.yarnpkg.com/@form-create/component-ivu-radio/-/component-ivu-radio-2.5.7.tgz#1a46990cb536c38e1d551a81e1892b8549afa926"
-  integrity sha512-+SkB1TaoXdYk1VCzIIxZQGIU7996c6X5GhV+HObDuRpsjMusszCvbvgnmOMhxpe8KaHs8hV/E/kK8f4TncsLaA==
-  dependencies:
-    "@form-create/utils" "^2.5.7"
-
-"@form-create/component-ivu-select@^2.5.7":
-  version "2.5.7"
-  resolved "https://registry.yarnpkg.com/@form-create/component-ivu-select/-/component-ivu-select-2.5.7.tgz#9404ba8476e011c42d4fcb13f1493c5ff31513d5"
-  integrity sha512-gqVBVjzPrCoDVepHwUXTPw36uppkqC16QA929tuU2JdyXM7nLI/3iKnTlCQWtx74tNCRuezctBO3T5CRKcvEuw==
-  dependencies:
-    "@form-create/utils" "^2.5.7"
-
-"@form-create/component-ivu-tree@^2.5.7":
-  version "2.5.7"
-  resolved "https://registry.yarnpkg.com/@form-create/component-ivu-tree/-/component-ivu-tree-2.5.7.tgz#4a83f40e66cd91a6139df3653bb9731390794c57"
-  integrity sha512-/gEm6sFWv9jnix3Z1rdTIc7vKvJN7JPEmyzLuB8N9brWh+K5YHG62dIJr+dTccZfLkuJeXfWxnqp7l8NgXD5Ig==
-  dependencies:
-    "@form-create/utils" "^2.5.7"
-
-"@form-create/component-ivu-upload@^2.5.7":
-  version "2.5.7"
-  resolved "https://registry.yarnpkg.com/@form-create/component-ivu-upload/-/component-ivu-upload-2.5.7.tgz#c8855880d5a81cc4499bb009ad56783778317b00"
-  integrity sha512-VmUN6zVqg+W62FcO21XMEVJOG4Y7OeqYdhWEjCLWrGYp3QitwWDdK5VU56Lto4f3MFpPYbHgqX0zTYFQhPRoUQ==
-  dependencies:
-    "@form-create/utils" "^2.5.7"
-
 "@form-create/component-subform@^2.5.2":
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/@form-create/component-subform/-/component-subform-2.5.2.tgz#c7609ffabbaf09db1fa977f27fc01e1384b92d45"
@@ -1042,22 +993,6 @@
     "@form-create/component-elm-select" "^2.5.7"
     "@form-create/component-elm-tree" "^2.5.7"
     "@form-create/component-elm-upload" "^2.5.7"
-    "@form-create/component-subform" "^2.5.2"
-    "@form-create/core" "^2.5.8"
-    "@form-create/utils" "^2.5.7"
-
-"@form-create/iview@^2.5.8":
-  version "2.5.8"
-  resolved "https://registry.yarnpkg.com/@form-create/iview/-/iview-2.5.8.tgz#cc01bc3518773b7ab2875069a3241b1df814b64f"
-  integrity sha512-GEcKKx2Lg7FRCEdYgR1Hhx08yH671cdr/QYbvxtsvMYmZlUtAcJ+pZF2Vd0PIq/ffzr015VK02CPd7MovrQ3Jw==
-  dependencies:
-    "@form-create/component-ivu-checkbox" "^2.5.7"
-    "@form-create/component-ivu-frame" "^2.5.7"
-    "@form-create/component-ivu-group" "^2.5.8"
-    "@form-create/component-ivu-radio" "^2.5.7"
-    "@form-create/component-ivu-select" "^2.5.7"
-    "@form-create/component-ivu-tree" "^2.5.7"
-    "@form-create/component-ivu-upload" "^2.5.7"
     "@form-create/component-subform" "^2.5.2"
     "@form-create/core" "^2.5.8"
     "@form-create/utils" "^2.5.7"

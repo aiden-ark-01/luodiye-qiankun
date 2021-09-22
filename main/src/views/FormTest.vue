@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form-create :rule="rule" v-model="fApi" :option="options" :value.sync="values" />
+    <form-create :rule="rule" v-model="fApi" :option="options" :value.sync="values" v-if="show" />
     {{ values.input1 }}
   </div>
 </template>
@@ -9,6 +9,7 @@
 export default {
   data() {
     return {
+      show:false,
       fApi: {},
       values: {
         input1: "123123",
@@ -96,5 +97,10 @@ export default {
       ],
     };
   },
+  mounted(){
+    setTimeout(() => {
+      this.show=true
+    }, 2000);
+  }
 };
 </script>
