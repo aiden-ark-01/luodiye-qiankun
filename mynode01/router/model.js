@@ -5,6 +5,13 @@ const multipart = require('connect-multiparty');
 const router = express.Router()
 router.post('/getModelData', getModelData)
 router.post('/saveData', saveData)
+router.post('/test', ()=>{
+  res.send({
+    code: 1,
+    data: 'asd',
+    msg: '成功'
+  })
+})
 const multipartMiddleware = multipart({ uploadDir: './tmp/uploads' });
 router.post('/uploadImages',multipartMiddleware, uploadImages)
 module.exports = router
