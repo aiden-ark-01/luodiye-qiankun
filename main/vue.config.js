@@ -3,7 +3,7 @@ module.exports = {
     port: 8080,
     proxy:{
       '/api': {
-        target: process.env.VUE_APP_SERVER_PATH,
+        target: "http://192.168.200.128:3031/",
         pathRewrite: {'^/api' : ''}
       }
     }
