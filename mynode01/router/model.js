@@ -1,6 +1,7 @@
 const express = require('express')
 const { getModelData, saveData,uploadImages } = require('../apiFun')
 const multipart = require('connect-multiparty');
+const res = require('express/lib/response');
 // const upload=require('../configs/multer.config')
 const router = express.Router()
 router.post('/getModelData', getModelData)

@@ -32,6 +32,10 @@ app.get('/test', (req, res) => {
     }]]
   })
 })
+app.get('/to', (req, res) => {
+  console.log('11', 11);
+  res.send('http://192.168.1.9:10000')
+})
 
 router.forEach(r=>{
   app.use(r)

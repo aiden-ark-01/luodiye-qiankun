@@ -41,11 +41,17 @@ export default {
               accept: "image/*",
               format: ["jpg", "jpeg", "png", "gif"],
               name: "pic",
+              autoUpload:false,
               onSuccess: function (response, file) {
                 file.url =
                   process.env.VUE_APP_SERVER_PATH +
                   "public/uploads/" +
                   response.data.path;
+                  console.log('file', file)
+                  console.log('response', response)
+              },
+              beforeUpload(file){
+
               },
               onError: function (r) {
                 console.log(`r`, r);
